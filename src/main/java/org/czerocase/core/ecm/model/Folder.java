@@ -30,8 +30,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.czerocase.core.db.model.Attribute;
-
 public class Folder extends ECMObject {
 	/**
 	 * 
@@ -40,7 +38,7 @@ public class Folder extends ECMObject {
 	public List<ECMObject> children;
 	
 	public Folder(){
-		super.setAttributes(new ArrayList<Attribute>());
+		super.setAttributes(new ArrayList<Attribute<?>>());
 		super.setPermissions(new HashMap<String, Permission>());
 		this.children = new ArrayList<ECMObject>();
 	}

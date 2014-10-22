@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>bundle</packaging>
 	<groupId>org.czerocase</groupId>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<artifactId>czerocase-core</artifactId>
 	<name>czerocase-core</name>
 	<description>czerocase-core OSGi Bundle</description>

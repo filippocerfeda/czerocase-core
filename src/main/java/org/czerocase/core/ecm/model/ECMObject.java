@@ -30,39 +30,50 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import org.czerocase.core.db.model.Attribute;
-
-
 public class ECMObject implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3920642771843098328L;
-	private List<Attribute> attributes;
+	private List<Attribute<?>> attributes;
 	private Map<String,Permission> permissions;
 	private String ecmType;
 	private String ecmName;
 	private String ecmId;
 	private String ecmPath;
 	
-	public void addAttibute(Attribute attribute){
-		this.attributes.add(attribute);
-	}
-	public List<Attribute> getAttributes() {
+	public List<Attribute<?>> getAttributes() {
 		return attributes;
 	}
+
+	public void addAttibute(Attribute<?> attribute){
+		this.attributes.add(attribute);
+	}
 	
-	public void setAttributes(List<Attribute> attributes){
+	public boolean removeAttribute(String key) {
+		for(int i = 0; i < getAttributes().size(); ++i) {
+			Attribute<?> attr = getAttributes().get(i);
+			if (attr.getKey().equals(key)) {
+				getAttributes().remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void setAttributes(List<Attribute<?>> attributes){
 		this.attributes = attributes;
 	}
-	public Attribute getAttributeByName(String key) {
-		for(Attribute attribute : getAttributes()){
+	
+	public Attribute<?> getAttributeByName(String key) {
+		for(Attribute<?> attribute : getAttributes()){
 			if(attribute.getKey().equals(key))
 				return attribute;
 		}
 		return null;
 	}
 	
+	@Deprecated
 	public Attribute getAttributeByValue(Object value) {
 		Attribute attr = new Attribute();
 		//attribute.setKey("string");
@@ -76,6 +87,8 @@ public class ECMObject implements Serializable{
 		return null;
 	}
 	
+	
+	@Deprecated
 	public void setAttributeByName(String key,Object value) {
 		for(Attribute attribute : getAttributes()){
 			if(attribute.getKey().equals(key))

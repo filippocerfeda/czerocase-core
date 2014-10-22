@@ -29,8 +29,6 @@ package org.czerocase.core.ecm.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.czerocase.core.db.model.Attribute;
-
 public class Document extends ECMObject {
 	/**
 	 * 
@@ -40,7 +38,7 @@ public class Document extends ECMObject {
 	private Double version;
 	
 	public Document(){
-		super.setAttributes(new ArrayList<Attribute>());
+		super.setAttributes(new ArrayList<Attribute<?>>());
 		super.setPermissions(new HashMap<String, Permission>());
 	}
 	public void setContentStream(ContentStream contentStream){
