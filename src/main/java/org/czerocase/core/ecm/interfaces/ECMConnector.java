@@ -29,7 +29,7 @@ package org.czerocase.core.ecm.interfaces;
 
 import java.util.List;
 
-import org.czerocase.core.db.model.Attribute;
+import org.czerocase.core.ecm.model.Attribute;
 import org.czerocase.core.ecm.exceptions.ECMException;
 import org.czerocase.core.ecm.model.Document;
 import org.czerocase.core.ecm.model.ECMObject;
